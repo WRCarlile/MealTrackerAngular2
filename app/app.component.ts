@@ -8,9 +8,8 @@ import { MealListComponent} from './meal-list.component';
   directives: [MealListComponent],
   template: `
     <div class="container">
-    <meal-list>
-      [mealList]="meals"
-      (onMealSelect)="mealWasSelected($event)">
+    <h1 class="center"> Meal Tracker</h1>
+    <meal-list [meals] = "meals" (onMealSelect)= "mealWasSelected($event)">  
     </meal-list>
     </div>
   `
