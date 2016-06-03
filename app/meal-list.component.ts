@@ -1,6 +1,5 @@
 import { Meal } from './meal.model';
 import { Component, EventEmitter } from 'angular2/core';
-
 import { MealComponent } from './meal.component';
 import { EditMealDetailsComponent } from './edit-meal-details.component';
 // import { NewMealComponent } from './new-meal.component';
@@ -21,6 +20,7 @@ import { EditMealDetailsComponent } from './edit-meal-details.component';
         <li>Food: {{ meal.type }}</li>
         <li>Description: {{ meal.description }}</li>
         <li>Calories: {{ meal.calories }}%</li>
+      </ul>
     </div>
 
     <div>
@@ -55,18 +55,18 @@ export class MealListComponent {
     console.log(this.show);
   }
 
-  createMeal(newMeal: Meal): void {
-    this.meals.push(newMeal);
-  }
+  // createMeal(newMeal: Meal): void {
+  //   this.meals.push(newMeal);
+  // }
 
-  onChange(filterOption) {
-    // this.filterCart = filterOption;
-    // this.calorieTotal = 0;
-    //
-    // for ( var meal of this.mealList ) {
-    //   if ( meal.purchased ){
-    //     this.total += album.price;
-    //   }
-    // }
-  }
+  // onChange(filterOption) {
+  //   // this.filterCart = filterOption;
+  //   // this.calorieTotal = 0;
+  //   //
+  //   // for ( var meal of this.mealList ) {
+  //   //   if ( meal.purchased ){
+  //   //     this.total += album.price;
+  //   //   }
+  //   // }
+  // }
 }

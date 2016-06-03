@@ -9,7 +9,7 @@ import { MealListComponent} from './meal-list.component';
   template: `
     <div class="container">
     <h1 class="center"> Meal Tracker</h1>
-    <meal-list [meals] = "meals" (onMealSelect)= "mealWasSelected($event)">  
+    <meal-list [meals] = "meals" (onMealSelect)= "mealWasSelected($event)">
     </meal-list>
     </div>
   `
@@ -22,6 +22,8 @@ export class AppComponent {
       new Meal("Hamburger", "Didn't get a soda or cheese on my burger!", 354),
       new Meal("Fries", "I only ate half of them.", 365)
     ];
+  }
+  mealWasSelected(meal: Meal): void {  
   }
 }
 
