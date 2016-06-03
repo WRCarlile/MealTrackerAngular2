@@ -17,7 +17,4 @@ import { Meal } from './meal.model'
 })
 export class MealComponent {
   public meal: Meal;
-  // toggleLow(setState: boolean){
-  //   this.keg.low = setState;
-  // }
 }
