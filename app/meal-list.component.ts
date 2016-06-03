@@ -2,7 +2,7 @@ import { Meal } from './meal.model';
 import { Component, EventEmitter } from 'angular2/core';
 import { MealComponent } from './meal.component';
 import { EditMealDetailsComponent } from './edit-meal-details.component';
-// import { NewMealComponent } from './new-meal.component';
+import { NewMealComponent } from './new-meal.component';
 // import { CartPipe } from './cart.pipe';
 
 @Component({
@@ -10,7 +10,7 @@ import { EditMealDetailsComponent } from './edit-meal-details.component';
   inputs: ['meals'],
   outputs: ['onMealSelect'],
   // pipes: [CartPipe],
-  directives: [MealComponent, EditMealDetailsComponent],
+  directives: [MealComponent, EditMealDetailsComponent, NewMealComponent],
   template: `
   <div class= "container center">
     <h2> Meals:</h2>
@@ -22,8 +22,8 @@ import { EditMealDetailsComponent } from './edit-meal-details.component';
         <li>Calories: {{ meal.calories }}%</li>
       </ul>
     </div>
-
-    <div>
+    <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
+    <div class="edit">
       <edit-meal-details *ngIf="selectedMeal"[meal]="selectedMeal">
 
       </edit-meal-details>
@@ -57,17 +57,18 @@ export class MealListComponent {
     }
     console.log(this.show);
   }
-  calculateCalories(Meal) {
+  calculateCalories(calorieTotal) {
     for (var count of this.meals) {
       if (count.calories) {
         this.calorieTotal += count.calories;
       }
+      console.log(calorieTotal);
     }
 
   }
-  // createMeal(newMeal: Meal): void {
-  //   this.meals.push(newMeal);
-  // }
+  createMeal(newMeal: Meal): void {
+    this.meals.push(newMeal);
+  }
 
   // onChange(filterOption) {
   //   // this.filterCart = filterOption;
