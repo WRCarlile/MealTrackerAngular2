@@ -2,8 +2,8 @@ import { Component } from 'angular2/core'
 import { Meal } from './meal.model'
 
 @Component({
-    selector: 'meal-display',
-    inputs: ['meal'],
+  selector: 'meal-display',
+  inputs: ['meal'],
   template: `
   <div class="container">
     <div *ngFor="#meal of meals" >
@@ -13,8 +13,8 @@ import { Meal } from './meal.model'
       <li>Price: {{ meal.description }} dollars</li>
       <li>Alcohol Content: {{ meal.calories }}%</li>
   `
-
 })
+
 export class MealComponent {
   public meal: Meal;
 }
