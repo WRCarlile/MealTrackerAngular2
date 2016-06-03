@@ -8,7 +8,6 @@ import {Meal} from './meal.model';
 
 export class FilterPipe implements PipeTransform {
   transform(input: Meal[], args) {
-    console.log('selected meal: ', args[1]);
     var desiredFilter = args[0];
     if(desiredFilter === "highCalories") {
       return input.filter((meal) => {
@@ -16,7 +15,7 @@ export class FilterPipe implements PipeTransform {
       });
     } else if (desiredFilter === "lowCalories") {
       return input.filter((meal) => {
-        return !meal.lowCalories;
+        return !meal.highCalories;
       });
     } else {
       return input;

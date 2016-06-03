@@ -3,18 +3,23 @@ import { Component, EventEmitter } from 'angular2/core';
 import { MealComponent } from './meal.component';
 import { EditMealDetailsComponent } from './edit-meal-details.component';
 import { NewMealComponent } from './new-meal.component';
-// import { CartPipe } from './cart.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['meals'],
   outputs: ['onMealSelect'],
-  // pipes: [CartPipe],
+  pipes: [FilterPipe],
   directives: [MealComponent, EditMealDetailsComponent, NewMealComponent],
   template: `
   <div class= "container center">
     <h2> Meals:</h2>
-    <div *ngFor="#meal of meals">
+    <select (change)="onChange($event.target.value)" class="filter">
+      <option value="all">Show All</option>
+      <option value="highCalories">High Calorie Foods</option>
+      <option value="lowCalories">Low Calorie Foods</option>
+    </select>
+    <div *ngFor="#meal of meals | highCalories:filterMeal">
       <h3 (click)="mealClicked(meal)" [class.selected]="selectedMeal === meal">{{ meal.type }}</h3>
       <ul *ngIf="selectedMeal === meal && show === true" >
         <li>Food: {{ meal.type }}</li>
@@ -40,7 +45,7 @@ export class MealListComponent {
   public selectedMeal: Meal;
   public calorieTotal: number = 0;
   public show: boolean;
-  // public filterCart: string = "notPurchased";
+  public filterMeal: string = "lowCalories";
   // public calorieTotal: number = 0;
 
   constructor() {
@@ -55,29 +60,40 @@ export class MealListComponent {
     } else {
       this.show = false;
     }
-    console.log(this.show);
-  }
-  calculateCalories(calorieTotal) {
-    for (var count of this.meals) {
-      if (count.calories) {
-        this.calorieTotal += count.calories;
-      }
-      console.log(calorieTotal);
-    }
 
+  }
+  getCalories(meal: Meal) {
+    if(meal.calories > 500) {
+      this.selectedMeal = meal;
+      meal.highCalories = true;
+    } else {
+      meal.highCalories = false;
+    }
+    
+    // for (var count of this.meals) {
+    //   if (count.calories) {
+    //     this.calorieTotal += count.calories;
+    //   }
+    //   console.log(calorieTotal);
+    // }
+    console.log(highCalories);
   }
   createMeal(newMeal: Meal): void {
     this.meals.push(newMeal);
   }
 
-  // onChange(filterOption) {
-  //   // this.filterCart = filterOption;
-  //   // this.calorieTotal = 0;
-  //   //
-  //   // for ( var meal of this.mealList ) {
-  //   //   if ( meal.purchased ){
-  //   //     this.total += album.price;
-  //   //   }
-  //   // }
-  // }
+
+
+  onChange(filterOption) {
+    this.filterMeal = filterOption;
+  }
+
+    // this.calorieTotal = 0;
+
+    // for ( var meal of this.mealList ) {
+    //   if ( meal.purchased ){
+    //     this.total += album.price;
+    //   }
+    // }
+  }
 }
