@@ -19,7 +19,7 @@ export class AppComponent {
 
   constructor(){
     this.meals = [
-      new Meal("Hamburger", "Didn't get a soda or cheese on my burger!", 354, 0),
+      new Meal("Hamburger", "Didn't get a soda or cheese on my burger!", 550, 0),
       new Meal("Fries", "I only ate half of them.", 365, 1)
     ];
   }

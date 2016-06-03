@@ -19,7 +19,7 @@ import { FilterPipe } from './filter.pipe';
       <option value="highCalories">High Calorie Foods</option>
       <option value="lowCalories">Low Calorie Foods</option>
     </select>
-    <div *ngFor="#meal of meals | highCalories:filterMeal">
+    <div *ngFor="#meal of meals | highCalories:filterMeal:selectedMeal">
       <h3 (click)="mealClicked(meal)" [class.selected]="selectedMeal === meal">{{ meal.type }}</h3>
       <ul *ngIf="selectedMeal === meal && show === true" >
         <li>Food: {{ meal.type }}</li>
@@ -63,21 +63,22 @@ export class MealListComponent {
 
   }
   getCalories(meal: Meal) {
+
     if(meal.calories > 500) {
+
       this.selectedMeal = meal;
       meal.highCalories = true;
     } else {
       meal.highCalories = false;
     }
-    
     // for (var count of this.meals) {
     //   if (count.calories) {
     //     this.calorieTotal += count.calories;
     //   }
-    //   console.log(calorieTotal);
+      console.log(highCalories);
     // }
-    console.log(highCalories);
   }
+
   createMeal(newMeal: Meal): void {
     this.meals.push(newMeal);
   }
@@ -95,5 +96,5 @@ export class MealListComponent {
     //     this.total += album.price;
     //   }
     // }
-  }
+
 }
