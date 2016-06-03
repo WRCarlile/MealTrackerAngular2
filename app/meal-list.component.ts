@@ -27,7 +27,9 @@ import { EditMealDetailsComponent } from './edit-meal-details.component';
       <edit-meal-details *ngIf="selectedMeal"[meal]="selectedMeal">
 
       </edit-meal-details>
+
     </div>
+    <h4> Total Calories: {{calorieTotal}} </h4>
   </div>
   `
 })
@@ -36,6 +38,7 @@ export class MealListComponent {
   public meals: Meal[];
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
+  public calorieTotal: number = 0;
   public show: boolean;
   // public filterCart: string = "notPurchased";
   // public calorieTotal: number = 0;
@@ -54,7 +57,14 @@ export class MealListComponent {
     }
     console.log(this.show);
   }
+  calculateCalories(Meal) {
+    for (var count of this.meals) {
+      if (count.calories) {
+        this.calorieTotal += count.calories;
+      }
+    }
 
+  }
   // createMeal(newMeal: Meal): void {
   //   this.meals.push(newMeal);
   // }
