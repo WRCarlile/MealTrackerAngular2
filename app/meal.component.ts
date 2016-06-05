@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core
+import { Component } from 'angular2/core'
 import { Meal } from './meal.model'
 
 @Component({
@@ -17,13 +17,4 @@ import { Meal } from './meal.model'
 
 export class MealComponent {
   public meal: Meal;
-  // public high = meal.calories;
-  // (high > 500) {
-  //
-  // }
-  // toggleHighCalorie(setState: boolean){
-  //   if(this.meal.calories > 500) {
-  //   this.meal.highCalories= setState;
-  //   }
-  // }
 }

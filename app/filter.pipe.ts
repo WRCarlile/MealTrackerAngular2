@@ -11,11 +11,11 @@ export class FilterPipe implements PipeTransform {
     var desiredFilter = args[0];
     if(desiredFilter === "highCalories") {
       return input.filter((meal) => {
-        return meal.highCalories;
+        return meal.calories > 500;
       });
     } else if (desiredFilter === "lowCalories") {
       return input.filter((meal) => {
-        return !meal.highCalories;
+        return meal.calories < 500;
       });
     } else {
       return input;

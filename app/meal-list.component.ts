@@ -1,5 +1,5 @@
-import { Meal } from './meal.model';
 import { Component, EventEmitter } from 'angular2/core';
+import { Meal } from './meal.model';
 import { MealComponent } from './meal.component';
 import { EditMealDetailsComponent } from './edit-meal-details.component';
 import { NewMealComponent } from './new-meal.component';
@@ -62,23 +62,7 @@ export class MealListComponent {
     }
 
   }
-  getCalories(meal: Meal) {
-
-    if(meal.calories > 500) {
-
-      this.selectedMeal = meal;
-      meal.highCalories = true;
-    } else {
-      meal.highCalories = false;
-    }
-    // for (var count of this.meals) {
-    //   if (count.calories) {
-    //     this.calorieTotal += count.calories;
-    //   }
-      console.log(highCalories);
-    // }
-  }
-
+  
   createMeal(newMeal: Meal): void {
     this.meals.push(newMeal);
   }

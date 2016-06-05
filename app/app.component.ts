@@ -20,15 +20,10 @@ export class AppComponent {
   constructor(){
     this.meals = [
       new Meal("Hamburger", "Didn't get a soda or cheese on my burger!", 550, 0),
-      new Meal("Fries", "I only ate half of them.", 365, 1)
+      new Meal("Fries", "I only ate half of them.", 365, 1),
+      new Meal("Pizza", "I ate an entire pizza so shameful.", 1400, 2)
     ];
   }
   mealWasSelected(meal: Meal): void {
   }
 }
-
-// export class Task {
-//   public done: boolean = false;
-//   constructor(public description: string, public id: number) {
-//
-//   }

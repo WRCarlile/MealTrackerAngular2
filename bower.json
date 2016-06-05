@@ -6,7 +6,7 @@
     "Ryan Carlile <ryancarlile@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/WRCarlile/MealTrackerAngular2",
   "ignore": [
     "**/.*",
     "node_modules",
