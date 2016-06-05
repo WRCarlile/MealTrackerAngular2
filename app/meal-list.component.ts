@@ -24,7 +24,7 @@ import { FilterPipe } from './filter.pipe';
       <ul *ngIf="selectedMeal === meal && show === true" >
         <li>Food: {{ meal.type }}</li>
         <li>Description: {{ meal.description }}</li>
-        <li>Calories: {{ meal.calories }}%</li>
+        <li>Calories: {{ meal.calories }}</li>
       </ul>
     </div>
     <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
@@ -62,23 +62,13 @@ export class MealListComponent {
     }
 
   }
-  
+
   createMeal(newMeal: Meal): void {
     this.meals.push(newMeal);
   }
 
-
-
   onChange(filterOption) {
     this.filterMeal = filterOption;
   }
-
-    // this.calorieTotal = 0;
-
-    // for ( var meal of this.mealList ) {
-    //   if ( meal.purchased ){
-    //     this.total += album.price;
-    //   }
-    // }
 
 }
