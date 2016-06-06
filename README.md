@@ -21,7 +21,7 @@ $ npm install typescript -g
 ```
 $ bower install bootstrap --save
 ```
-*_Then navigate to the main folder and run these commands:_
+* _Then navigate to the main folder and run these commands:_
 ```
 $ gulp build
 ```
