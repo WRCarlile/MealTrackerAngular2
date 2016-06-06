@@ -8,13 +8,20 @@ Practice with the Angular2 Framework. Manage your meals and count calories for t
 ## Setup/Installation Requirements
 
 * _Clone or download the repository_
-* _Run these components:_
+* _Run these commands in the terminal:_
 ```
 $ npm install
 ```
 ```
-$ bower install
+$ npm install bower -g
 ```
+```
+$ npm install typescript -g
+```
+```
+$ bower install bootstrap --save
+```
+*_Then navigate to the main folder and run these commands:_
 ```
 $ gulp build
 ```
